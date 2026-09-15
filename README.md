@@ -10,8 +10,9 @@ When creating a new repository on GitHub, select `python-skeleton` as the
 template to follow.
 
 Once you have created your own repository based off this template, then edit 
-the `name` and `description` in [pyproject.toml](./pyproject.toml) and rename
-the folder [src/python_skeleton](./src//python_skeleton) to match the name and
+the `name`, `description` and `[project.scripts]` part of 
+[pyproject.toml](./pyproject.toml) and rename the folder 
+[src/python_skeleton](./src//python_skeleton), to match the name and 
 description of the repository you have created. Note that the `name` in 
 [pyproject.toml](./pyproject.toml) can contain dashes (`-`), and your 
 repository name can match that, but the folder 
