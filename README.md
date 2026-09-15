@@ -4,13 +4,37 @@ Template repository for new Python projects.
 
 ## Getting started
 
-Use [`uv`](https://docs.astral.sh/uv/). Make sure that it is installed. This
-project will have minimal dependencies installed by default, so you can add 
-more as you are developing your code using `uv add something`.
+### Creating a copy
 
-## Repository settings
+When creating a new repository on GitHub, select `python-skeleton` as the
+template to follow.
 
-### General
+Once you have created your own repository based off this template, then edit 
+the `name` and `description` in [pyproject.toml](./pyproject.toml) and rename
+the folder [src/python_skeleton](./src//python_skeleton) to match the name and
+description of the repository you have created. Note that the `name` in 
+[pyproject.toml](./pyproject.toml) can contain dashes (`-`), and your 
+repository name can match that, but the folder 
+[src/python_skeleton](./src//python_skeleton) translates dashes to underscores 
+(`_`). You should follow that example.
+
+Over time, you will want to replace this README with your own.
+
+### Virtual environment
+
+Use [`uv`](https://docs.astral.sh/uv/). Make sure that it is installed.
+
+This project will have minimal dependencies installed by default, so you can 
+add more as you are developing your code using `uv add something`. If you want
+to add dependencies that are required for development but not for the use of 
+the package, add them to the dev group with `uv add --dev something`.
+
+To create a virtual environment to start working on this project use 
+`uv sync --all-groups`.
+
+### Repository settings
+
+#### General
 
 Features:
 
@@ -26,7 +50,7 @@ Pull Requests:
 - Turn on "Allow auto-merge"
 - Turn on "Automatically delete head branches"
 
-### Rulesets
+#### Rulesets
 
 Create a new branch ruleset. Give it a name like "Protect main". Include the
 default branch as a target. Set the enforcement status to "Active".
