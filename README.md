@@ -29,7 +29,7 @@ Pull Requests:
 ### Rulesets
 
 Create a new branch ruleset. Give it a name like "Protect main". Include the
-default branch as a target.
+default branch as a target. Set the enforcement status to "Active".
 
 Branch rules:
 
