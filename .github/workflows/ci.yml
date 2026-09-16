@@ -8,7 +8,7 @@ permissions:
 jobs:
 
   lint:
-    name: Code lint
+    name: Code linting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/environment
-      - name: Code type hints check
+      - name: Code type checking
         run: uv run --frozen ty check .
 
   unit_test:
