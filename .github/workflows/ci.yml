@@ -8,6 +8,7 @@ permissions:
 jobs:
 
   lint:
+    displayName: Code lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -16,6 +17,7 @@ jobs:
         run: uv run --frozen ruff check --output-format=github .
 
   format:
+    displayName: Code formatting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -23,7 +25,8 @@ jobs:
       - name: Code formatting check
         run: uv run --frozen ruff format --diff .
 
-  type_hints:
+  type_check:
+    displayName: Code type checking
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -32,6 +35,7 @@ jobs:
         run: uv run --frozen ty check .
 
   unit_test:
+    displayName: Unit test and code coverage
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
