@@ -2,15 +2,21 @@
 
 ## Project Shape
 
-- This is a template repository, not a finished application. Runtime code currently consists only of `src/python_skeleton/__init__.py`.
-- The installed command `python-skeleton` calls `python_skeleton:main`, as configured in `[project.scripts]` in `pyproject.toml`.
+- This is a template repository, not a finished application. Runtime functions are in `src/python_skeleton/main.py`; `src/python_skeleton/__init__.py` is empty.
+- The installed command is configured as `python_skeleton:main`, but the callable currently lives at `python_skeleton.main:main`; align the entry point or re-export it before relying on the command.
 - When instantiating the template, update the distribution name, script entry point, and package directory together. Distribution names may use dashes; the import package uses underscores.
 
 ## Tooling
 
 - Python 3.14 is required by both `.python-version` and `pyproject.toml`.
 - Use `uv`; create/update the environment with `uv sync --all-groups`. Keep `uv.lock` committed and use `uv add` or `uv add --dev` rather than editing dependency lists alone.
-- Run the current entry point with `uv run python-skeleton` and build distributions with `uv build`.
+- Build distributions with `uv build`.
+
+## Documentation
+
+- Documentation uses ProperDocs with Shadcn, Mkdocstrings, and MkDocs AutoAPI. Preview with `uv run properdocs serve`; perform a finite verification build with `uv run properdocs build`.
+- Keep `autoapi_dir: src` aligned with Mkdocstrings' `paths: [src]` in `properdocs.yml`.
+- `shadcn_autoapi.py` is a compatibility hook for Shadcn 0.12.1: it skips Git timestamps only for AutoAPI-generated temporary pages. Remove it only after Shadcn handles MkDocs' `File.generated_by` marker upstream.
 
 ## Verification
 
@@ -18,5 +24,4 @@
 - Format check: `uv run ruff format --check .`
 - Typecheck: `uv run ty check`
 - Tests: `uv run pytest`; focused test: `uv run pytest path/to/test_file.py::test_name`
-- No tests are currently committed, so `uv run pytest` reports zero collected tests and exits with pytest's no-tests status. Do not present it as a passing suite until tests exist.
-- There are no repository-specific Ruff, ty, pytest, or coverage settings and no CI workflows; these tools currently use their defaults.
+- There are no repository-specific Ruff, ty, pytest, or coverage settings; these tools currently use their defaults.

@@ -23,3 +23,10 @@ dev = [
     "ruff>=0.16.7",
     "ty>=0.0.81",
 ]
+docs = [
+    "mkdocs-autoapi>=0.4.1",
+    "mkdocs-include-markdown-plugin>=7.3.0",
+    "mkdocs-shadcn>=0.12.1",
+    "mkdocstrings-python>=2.0.8",
+    "properdocs>=1.6.7",
+]
