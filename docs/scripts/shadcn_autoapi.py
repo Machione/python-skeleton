@@ -3,6 +3,8 @@ from mkdocs.structure.files import Files
 from mkdocs.structure.pages import Page
 from shadcn.plugins.mixins.git import GitTimestampsMixin
 
+_ORIGINAL_ON_PAGE_MARKDOWN = GitTimestampsMixin.on_page_markdown
+
 
 def _skip_git_for_generated_pages(
     self: GitTimestampsMixin,
@@ -18,7 +20,7 @@ def _skip_git_for_generated_pages(
             markdown, page=page, config=config, files=files
         )
 
-    return GitTimestampsMixin.on_page_markdown(
+    return _ORIGINAL_ON_PAGE_MARKDOWN(
         self, markdown, page=page, config=config, files=files
     )
 
