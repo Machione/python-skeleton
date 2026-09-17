@@ -1,1 +1,3 @@
-{% include-markdown "../README.md" %}
+# Python Skeleton
+
+% include-markdown "../README.md" %}

@@ -78,3 +78,21 @@ jobs:
       - uses: ./.github/actions/environment
       - name: YAML formatting check
         run: uv run --frozen yamlfmt -lint .
+
+  markdown_lint:
+    name: Markdown linting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: rvben/rumdl@v0
+        with:
+          command: check
+
+  markdown_format:
+    name: Markdown format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: rvben/rumdl@v0
+        with:
+          command: fmt-check
