@@ -16,11 +16,13 @@ requires = ["uv_build>=0.12.14,<0.13.0"]
 
 [dependency-groups]
 dev = [
+    "google-yamlfmt>=0.21.0",
     "pytest-cov>=7.1.0",
     "pytest>=9.1.1",
     "ruff>=0.16.7",
     "taplo>=0.9.3",
     "ty>=0.0.81",
+    "yamllint>=1.38.0",
 ]
 docs = [
     "mkdocs-autoapi>=0.4.1",
