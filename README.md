@@ -13,14 +13,14 @@ TODO: Add stuff here!
 When creating a new repository on GitHub, select `python-skeleton` as the
 template to follow.
 
-Once you have created your own repository based off this template, then edit 
-the `name`, `description` and `[project.scripts]` part of 
-[pyproject.toml](./pyproject.toml) and rename the folder 
-[src/python_skeleton](./src//python_skeleton), to match the name and 
-description of the repository you have created. Note that the `name` in 
-[pyproject.toml](./pyproject.toml) can contain dashes (`-`), and your 
-repository name can match that, but the folder 
-[src/python_skeleton](./src//python_skeleton) translates dashes to underscores 
+Once you have created your own repository based off this template, then edit
+the `name`, `description` and `[project.scripts]` part of
+[pyproject.toml](./pyproject.toml) and rename the folder
+[src/python_skeleton](./src//python_skeleton), to match the name and
+description of the repository you have created. Note that the `name` in
+[pyproject.toml](./pyproject.toml) can contain dashes (`-`), and your
+repository name can match that, but the folder
+[src/python_skeleton](./src//python_skeleton) translates dashes to underscores
 (`_`). You should follow that example.
 
 Over time, you will want to replace this README with your own.
@@ -29,12 +29,12 @@ Over time, you will want to replace this README with your own.
 
 Use [`uv`](https://docs.astral.sh/uv/). Make sure that it is installed.
 
-This project will have minimal dependencies installed by default, so you can 
+This project will have minimal dependencies installed by default, so you can
 add more as you are developing your code using `uv add something`. If you want
-to add dependencies that are required for development but not for the use of 
+to add dependencies that are required for development but not for the use of
 the package, add them to the dev group with `uv add --dev something`.
 
-To create a virtual environment to start working on this project use 
+To create a virtual environment to start working on this project use
 `uv sync --all-groups`.
 
 ### Repository settings
