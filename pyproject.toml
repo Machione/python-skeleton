@@ -21,6 +21,7 @@ dev = [
     "pytest>=9.1.1",
     "pytest-cov>=7.1.0",
     "ruff>=0.16.7",
+    "taplo>=0.9.3",
     "ty>=0.0.81",
 ]
 docs = [
@@ -30,3 +31,13 @@ docs = [
     "mkdocstrings-python>=2.0.8",
     "properdocs>=1.6.7",
 ]
+
+[tool.ruff.format]
+skip-magic-trailing-comma = true
+docstring-code-format = true
+
+[tool.ruff.lint]
+extend-select = ["ANN", "N818"]
+
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
