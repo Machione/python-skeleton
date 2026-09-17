@@ -1,0 +1,14 @@
+extends: default
+
+ignore:
+  - .venv/
+
+rules:
+  document-start:
+    present: false
+  line-length:
+    max: 80
+    allow-non-breakable-words: true
+  truthy:
+    allowed-values: ['true', 'false']
+    check-keys: false
