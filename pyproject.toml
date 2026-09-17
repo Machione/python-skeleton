@@ -1,25 +1,23 @@
 [project]
-name = "python-skeleton"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-authors = [
-    { name = "Ryan McKeown", email = "ryanmckeown@mail4me.com" }
-]
-requires-python = ">=3.14"
+authors = [{ name = "Ryan McKeown", email = "ryanmckeown@mail4me.com" }]
 dependencies = []
+description = "Add your description here"
+name = "python-skeleton"
+readme = "README.md"
+requires-python = ">=3.14"
+version = "0.1.0"
 
 [project.scripts]
 python-skeleton = "python_skeleton:main"
 
 [build-system]
-requires = ["uv_build>=0.12.14,<0.13.0"]
 build-backend = "uv_build"
+requires = ["uv_build>=0.12.14,<0.13.0"]
 
 [dependency-groups]
 dev = [
-    "pytest>=9.1.1",
     "pytest-cov>=7.1.0",
+    "pytest>=9.1.1",
     "ruff>=0.16.7",
     "taplo>=0.9.3",
     "ty>=0.0.81",
@@ -33,8 +31,8 @@ docs = [
 ]
 
 [tool.ruff.format]
-skip-magic-trailing-comma = true
 docstring-code-format = true
+skip-magic-trailing-comma = true
 
 [tool.ruff.lint]
 extend-select = ["ANN", "N818"]

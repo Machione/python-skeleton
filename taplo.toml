@@ -1,4 +1,4 @@
 [formatting]
 indent_string = "    "
-reorder_keys = true
 reorder_arrays = true
+reorder_keys = true
