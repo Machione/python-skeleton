@@ -2,6 +2,10 @@
 
 Template repository for new Python projects.
 
+## Features
+
+TODO: Add stuff here!
+
 ## Getting started
 
 ### Creating a copy
@@ -69,3 +73,8 @@ Branch rules:
 - Turn on "Restrict code coverage"
   - Set "Minimum line coverage percentage" to 100
   - Set "Maximum line coverage drop" to 0
+
+### Recommended VS Code extensions
+
+- `tamasfe.even-better-toml`
+TODO: Add stuff here!
