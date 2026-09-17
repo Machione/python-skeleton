@@ -7,7 +7,7 @@ permissions:
 
 jobs:
 
-  lint:
+  python_lint:
     name: Code linting
     runs-on: ubuntu-latest
     steps:
@@ -16,7 +16,7 @@ jobs:
       - name: Code linting check
         run: uv run --frozen ruff check --output-format=github .
 
-  format:
+  python_format:
     name: Code formatting
     runs-on: ubuntu-latest
     steps:
@@ -25,7 +25,7 @@ jobs:
       - name: Code formatting check
         run: uv run --frozen ruff format --diff .
 
-  type_check:
+  python_type_check:
     name: Code type checking
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +34,7 @@ jobs:
       - name: Code type checking
         run: uv run --frozen ty check .
 
-  unit_test:
+  python_unit_test:
     name: Unit test and code coverage
     runs-on: ubuntu-latest
     steps:
@@ -42,3 +42,22 @@ jobs:
       - uses: ./.github/actions/environment
       - name: Code unit tests
         run: uv run --frozen pytest tests
+
+  toml_lint:
+    name: TOML linting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/environment
+      - name: TOML linting check
+        run: uv run --frozen taplo lint
+
+  toml_format:
+    name: TOML formatting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/environment
+      - name: TOML formatting check
+        run: uv run --frozen taplo format --diff --check
+    
