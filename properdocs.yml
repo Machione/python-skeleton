@@ -13,6 +13,8 @@ hooks:
 
 markdown_extensions:
   - mkdocs-click
+  - codehilite:
+      guess_lang: false
 
 plugins:
   - search
@@ -31,6 +33,7 @@ plugins:
           options:
             show_if_no_docstring: true
             show_source: true
+            show_signature_annotations: true
 
 nav:
   - Home: index.md
