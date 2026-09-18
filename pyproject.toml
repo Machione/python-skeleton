@@ -1,8 +1,6 @@
 [project]
 authors = [{ name = "Ryan McKeown", email = "ryanmckeown@mail4me.com" }]
-dependencies = [
-    "click>=8.5.0",
-]
+dependencies = ["click>=8.5.0"]
 description = "Add your description here"
 name = "python-skeleton"
 readme = "README.md"
