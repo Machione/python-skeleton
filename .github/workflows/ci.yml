@@ -41,7 +41,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/environment
       - name: Code unit tests
-        run: uv run --frozen pytest tests
+        run: uv run --frozen pytest
 
   python_docstring_format:
     name: Docstring format

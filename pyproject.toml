@@ -46,7 +46,14 @@ extend-select = ["ANN", "N818"]
 split-on-trailing-comma = false
 
 [tool.pytest.ini_options]
-addopts = "--doctest-modules --doctest-glob=*.md --ignore=docs/scripts --ignore=site"
+addopts = "--doctest-modules --doctest-glob=*.md --ignore=docs/scripts --ignore=site --cov"
+
+[tool.coverage.run]
+source_pkgs = ["python_skeleton"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 100
 
 [tool.docformatter]
 recursive = true
