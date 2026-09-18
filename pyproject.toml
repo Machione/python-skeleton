@@ -43,3 +43,6 @@ extend-select = ["ANN", "N818"]
 
 [tool.ruff.lint.isort]
 split-on-trailing-comma = false
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules --doctest-glob=*.md --ignore=docs/scripts --ignore=site"
