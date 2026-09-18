@@ -54,6 +54,7 @@ source_pkgs = ["python_skeleton"]
 
 [tool.coverage.report]
 fail_under = 100
+exclude_lines = ["if __name__ == .__main__."]
 
 [tool.docformatter]
 recursive = true
