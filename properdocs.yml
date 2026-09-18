@@ -11,6 +11,9 @@ theme:
 hooks:
   - docs/scripts/shadcn_autoapi.py
 
+markdown_extensions:
+  - mkdocs-click
+
 plugins:
   - search
   - include-markdown
@@ -31,3 +34,4 @@ plugins:
 
 nav:
   - Home: index.md
+  - CLI Reference: cli.md
