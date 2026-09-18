@@ -49,8 +49,8 @@ split-on-trailing-comma = false
 addopts = "--doctest-modules --doctest-glob=*.md --ignore=docs/scripts --ignore=site --cov"
 
 [tool.coverage.run]
-source_pkgs = ["python_skeleton"]
 branch = true
+source_pkgs = ["python_skeleton"]
 
 [tool.coverage.report]
 fail_under = 100
