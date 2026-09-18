@@ -21,6 +21,7 @@ jobs:
       - name: Configure git identity
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          email_domain="users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@$email_domain"
       - name: Deploy documentation
         run: uv run --frozen properdocs gh-deploy --force
