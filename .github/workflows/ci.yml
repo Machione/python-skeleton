@@ -43,6 +43,15 @@ jobs:
       - name: Code unit tests
         run: uv run --frozen pytest tests
 
+  python_docstring_format:
+    name: Docstring format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/environment
+      - name: Docstring formatting check
+        run: uv run --frozen docformatter --check src tests docs
+
   toml_lint:
     name: TOML linting
     runs-on: ubuntu-latest

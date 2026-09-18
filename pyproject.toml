@@ -16,6 +16,7 @@ requires = ["uv_build>=0.12.14,<0.13.0"]
 
 [dependency-groups]
 dev = [
+    "docformatter>=1.7.8",
     "google-yamlfmt>=0.21.0",
     "pytest-cov>=7.1.0",
     "pytest>=9.1.1",
@@ -46,3 +47,6 @@ split-on-trailing-comma = false
 
 [tool.pytest.ini_options]
 addopts = "--doctest-modules --doctest-glob=*.md --ignore=docs/scripts --ignore=site"
+
+[tool.docformatter]
+recursive = true
