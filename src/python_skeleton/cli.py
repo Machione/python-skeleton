@@ -10,7 +10,7 @@ def cli() -> None:
 
 @cli.command()
 def hello() -> None:
-    """Greetings!"""
+    """Greetings from the CLI!"""
     main()
 
 
