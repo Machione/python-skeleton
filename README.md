@@ -74,6 +74,28 @@ Branch rules:
   - Set "Minimum line coverage percentage" to 100
   - Set "Maximum line coverage drop" to 0
 
+#### Release automation
+
+Releases are automated with
+[release-please](https://github.com/googleapis/release-please). Pull request
+titles must follow [Conventional Commits](https://www.conventionalcommits.org)
+because they become the squash-merge commit message: `feat:` triggers a minor
+release, `fix:` a patch release, and a `!` suffix a major release. Prefixes
+such as `docs:`, `ci:` and `chore:` never trigger a release. Release PRs merge
+automatically once checks pass, after which the tag, GitHub release, and built
+distributions are published automatically. Define the ruleset's required
+status checks so that auto-merged release PRs wait for CI.
+
+One-time setup:
+
+1. Create a GitHub App (Settings > Developer settings > GitHub Apps) with
+   repository permissions Contents (read/write), Pull requests (read/write),
+   and Issues (read/write). Disable the app's webhook.
+2. Install the app on this repository.
+3. Add an Actions variable `RELEASE_APP_CLIENT_ID` containing the app's Client
+   ID, and an Actions secret `RELEASE_APP_PRIVATE_KEY` containing its private
+   key.
+
 ### Recommended VS Code extensions
 
 - `tamasfe.even-better-toml`
