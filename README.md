@@ -99,4 +99,4 @@ One-time setup:
 ### Recommended VS Code extensions
 
 - `tamasfe.even-better-toml`
-TODO: Add stuff here!
+TODO: Add stuff here! E.g. RUFF, ty, etc.
