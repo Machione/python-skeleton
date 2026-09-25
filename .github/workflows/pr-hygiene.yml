@@ -13,12 +13,18 @@ jobs:
     if: github.event.pull_request.user.type != 'Bot'
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
+      contents: read
     steps:
+      - name: Create GitHub App token
+        id: app_token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
       - name: Convert pull request to draft
         if: github.event.action == 'opened'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ steps.app_token.outputs.token }}
           PR_NODE_ID: ${{ github.event.pull_request.node_id }}
         run: |
           gh api graphql -f id="$PR_NODE_ID" -f query='
