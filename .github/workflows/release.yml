@@ -35,6 +35,29 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           token: ${{ steps.app_token.outputs.token }}
+      - name: Check out the release PR branch
+        if: steps.release.outputs.prs_created == 'true'
+        uses: actions/checkout@v7
+        with:
+          token: ${{ steps.app_token.outputs.token }}
+          ref: ${{ fromJSON(steps.release.outputs.prs)[0].headBranchName }}
+      - uses: ./.github/actions/environment
+        if: steps.release.outputs.prs_created == 'true'
+      - name: Format the generated changelog
+        if: steps.release.outputs.prs_created == 'true'
+        env:
+          BOT_NAME: ${{ steps.app_token.outputs.app-slug }}
+        run: |
+          uv run --frozen rumdl fmt CHANGELOG.md
+          if git diff --quiet; then
+            echo "Changelog is already formatted; nothing to commit."
+            exit 0
+          fi
+          git config user.name "$github-actions[bot]"
+          git config user.email "$github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git commit -m "style: format CHANGELOG.md with rumdl"
+          git push
       - name: Enable auto-merge on the release PR
         if: steps.release.outputs.prs_created == 'true'
         env:
