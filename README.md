@@ -99,6 +99,15 @@ One-time setup:
    ID, and an Actions secret `RELEASE_APP_PRIVATE_KEY` containing its private
    key.
 
+#### Pull request automation
+
+Pull requests open as drafts by default (enforced by a workflow, since GitHub
+has no native setting). Marking a PR as ready for review enables squash
+auto-merge, so it merges as soon as the ruleset's required status checks
+pass — reviews should happen while the PR is still a draft. Dependabot PRs
+auto-merge once checks pass and use a `chore(deps)` title prefix, so they
+never trigger a release.
+
 ### Recommended VS Code extensions
 
 - `tamasfe.even-better-toml`

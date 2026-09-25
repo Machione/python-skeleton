@@ -1,0 +1,79 @@
+name: PR automation
+on:
+  pull_request_target:
+    types: [opened, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+
+  draft_by_default:
+    name: Convert new PRs to drafts
+    if: github.event.pull_request.user.type != 'Bot'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Create GitHub App token
+        id: app_token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+      - name: Convert pull request to draft
+        if: github.event.action == 'opened'
+        env:
+          GH_TOKEN: ${{ steps.app_token.outputs.token }}
+          PR_NODE_ID: ${{ github.event.pull_request.node_id }}
+        run: |
+          gh api graphql -f id="$PR_NODE_ID" -f query='
+            mutation($id: ID!) {
+              convertPullRequestToDraft(input: {pullRequestId: $id}) {
+                pullRequest { isDraft }
+              }
+            }'
+
+  auto_merge_dependabot:
+    name: Enable auto-merge for Dependabot
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Create GitHub App token
+        id: app_token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+      - name: Enable auto-merge
+        env:
+          GH_TOKEN: ${{ steps.app_token.outputs.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          gh pr merge --auto --squash \
+            --repo "$GITHUB_REPOSITORY" "$PR_NUMBER" || true
+
+  auto_merge_ready:
+    name: Enable auto-merge when ready for review
+    if: github.event.action == 'ready_for_review'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Create GitHub App token
+        id: app_token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+      - name: Enable auto-merge
+        env:
+          GH_TOKEN: ${{ steps.app_token.outputs.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          gh pr merge --auto --squash \
+            --repo "$GITHUB_REPOSITORY" "$PR_NUMBER" || true
