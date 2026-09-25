@@ -52,6 +52,21 @@
   `RELEASE_APP_CLIENT_ID` and secret `RELEASE_APP_PRIVATE_KEY`. Plain
   `GITHUB_TOKEN` cannot be used because its PRs do not trigger CI.
 
+## Pull request automation
+
+- The `PR automation` workflow converts human-authored PRs to drafts when
+  they are opened (GitHub has no native setting for this) and enables squash
+  auto-merge when they are marked ready for review. Dependabot PRs get
+  auto-merge when opened. release-please PRs are managed by the Release
+  workflow and are deliberately untouched.
+- Auto-merge is enabled with the release GitHub App token on purpose: merges
+  performed by `GITHUB_TOKEN` would not trigger the Release workflow on
+  `main`.
+- Auto-merge fires as soon as the ruleset's required status checks pass, so
+  those checks are the only merge gate. Dependabot uses a `chore(deps)`
+  commit-message prefix so its PR titles pass the `Lint PR` check and never
+  trigger a release.
+
 ## Verification
 
 - Lint: `uv run ruff check .`

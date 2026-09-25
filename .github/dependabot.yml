@@ -6,6 +6,8 @@ updates:
       - "/.github/actions/*"
     schedule:
       interval: weekly
+    commit-message:
+      prefix: "chore(deps)"
     groups:
       github-actions:
         patterns:
