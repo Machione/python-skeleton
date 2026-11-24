@@ -1,14 +1,12 @@
 # python-skeleton
 
-<p align="center">
-  <a href="https://github.com/Machione/python-skeleton/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Machione/python-skeleton/ci.yml?branch=main&label=CI&style=flat-square" alt="CI" /></a>
-  <a href="https://machione.github.io/python-skeleton/"><img src="https://img.shields.io/github/actions/workflow/status/Machione/python-skeleton/build.yml?branch=main&label=docs&style=flat-square" alt="Docs" /></a>
-  <a href="https://github.com/Machione/python-skeleton/releases"><img src="https://img.shields.io/github/v/release/Machione/python-skeleton?style=flat-square&logo=github" alt="Release" /></a>
-  <img src="https://img.shields.io/badge/python-%3E%3D3.14-blue?style=flat-square&logo=python&logoColor=white" alt="Python Version" />
-  <a href="./LICENSE"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square" alt="License" /></a>
-  <a href="https://github.com/astral-sh/uv"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json" alt="uv" /></a>
-  <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff" /></a>
-</p>
+[![CI](https://img.shields.io/github/actions/workflow/status/Machione/python-skeleton/ci.yml?branch=main&label=CI&style=flat-square)](https://github.com/Machione/python-skeleton/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/github/actions/workflow/status/Machione/python-skeleton/build.yml?branch=main&label=docs&style=flat-square)](https://machione.github.io/python-skeleton/)
+[![Release](https://img.shields.io/github/v/release/Machione/python-skeleton?style=flat-square&logo=github)](https://github.com/Machione/python-skeleton/releases)
+![Python Version](https://img.shields.io/badge/python-%3E%3D3.14-blue?style=flat-square&logo=python&logoColor=white)
+[![License](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](./LICENSE)
+[![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 Template repository for new Python projects.
 
