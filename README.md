@@ -1,5 +1,13 @@
 # python-skeleton
 
+[![CI](https://img.shields.io/github/actions/workflow/status/Machione/python-skeleton/ci.yml?branch=main&label=CI&style=flat-square)](https://github.com/Machione/python-skeleton/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/github/actions/workflow/status/Machione/python-skeleton/build.yml?branch=main&label=docs&style=flat-square)](https://machione.github.io/python-skeleton/)
+[![Release](https://img.shields.io/github/v/release/Machione/python-skeleton?style=flat-square&logo=github)](https://github.com/Machione/python-skeleton/releases)
+![Python Version](https://img.shields.io/badge/python-%3E%3D3.14-blue?style=flat-square&logo=python&logoColor=white)
+[![License](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](./LICENSE)
+[![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
 Template repository for new Python projects.
 
 ## Features
